@@ -42,7 +42,8 @@ const RadioInput = styled.input`
   cursor: pointer;
 
   &:checked {
-    background: var(--color-primary) url(${iconCheck}) no-repeat center / contain;
+    background: url(${iconCheck}) no-repeat center / contain;
+    background-color: var(--color-primary);
     border-color: var(--color-primary);
   }
 `;
