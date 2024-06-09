@@ -283,7 +283,6 @@ const Day = styled.div`
 
   &:hover {
     border: 0.2rem solid var(--color-primary);
-    offset: -0.2rem;
   }
 
   @media ${device.desktop} {
