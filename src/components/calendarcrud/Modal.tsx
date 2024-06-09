@@ -2,7 +2,6 @@ import { useRef, useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, set, push } from 'firebase/database';
 import Button from '../Button';
-import CalendarIcon from '../../assets/images/icon-calendar.svg';
 import MiniCalendarStart from '../../components/calendarcrud/MiniCalendarStart';
 import MiniCalendarEnd from '../../components/calendarcrud/MiniCalendarEnd';
 import styled from 'styled-components';
@@ -119,7 +118,24 @@ const Modal = ({ setModalOpen, startDate }: ModalType) => {
                 }
                 disabled
               ></StartInput>
-              <CalendarIconStart onClick={startBtnClick} />
+              <CalendarIconStart
+                onClick={startBtnClick}
+                viewBox="0 0 22 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_101_1442)">
+                  <path
+                    d="M7.46429 1.17857C7.46429 0.525446 6.93884 0 6.28571 0C5.63259 0 5.10714 0.525446 5.10714 1.17857V3.14286H3.14286C1.40938 3.14286 0 4.55223 0 6.28571V7.07143V9.42857V22C0 23.7335 1.40938 25.1429 3.14286 25.1429H18.8571C20.5906 25.1429 22 23.7335 22 22V9.42857V7.07143V6.28571C22 4.55223 20.5906 3.14286 18.8571 3.14286H16.8929V1.17857C16.8929 0.525446 16.3674 0 15.7143 0C15.0612 0 14.5357 0.525446 14.5357 1.17857V3.14286H7.46429V1.17857ZM2.35714 9.42857H19.6429V22C19.6429 22.4321 19.2893 22.7857 18.8571 22.7857H3.14286C2.71071 22.7857 2.35714 22.4321 2.35714 22V9.42857Z"
+                    fill="#969696"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_101_1442">
+                    <rect width="22" height="25.1429" fill="white" />
+                  </clipPath>
+                </defs>
+              </CalendarIconStart>
               {showMiniCalendarStart && (
                 <MiniCalendarStart onDayClick={setSelectStartDay} setMiniStartOpen={setShowMiniCalendarStart} />
               )}
@@ -135,7 +151,19 @@ const Modal = ({ setModalOpen, startDate }: ModalType) => {
                 style={CompareDate ? { textDecoration: 'line-through', color: 'red' } : {}}
                 disabled
               />
-              <CalendarIconEnd onClick={endBtnClick} />
+              <CalendarIconEnd onClick={endBtnClick} viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clipPath="url(#clip0_101_1442)">
+                  <path
+                    d="M7.46429 1.17857C7.46429 0.525446 6.93884 0 6.28571 0C5.63259 0 5.10714 0.525446 5.10714 1.17857V3.14286H3.14286C1.40938 3.14286 0 4.55223 0 6.28571V7.07143V9.42857V22C0 23.7335 1.40938 25.1429 3.14286 25.1429H18.8571C20.5906 25.1429 22 23.7335 22 22V9.42857V7.07143V6.28571C22 4.55223 20.5906 3.14286 18.8571 3.14286H16.8929V1.17857C16.8929 0.525446 16.3674 0 15.7143 0C15.0612 0 14.5357 0.525446 14.5357 1.17857V3.14286H7.46429V1.17857ZM2.35714 9.42857H19.6429V22C19.6429 22.4321 19.2893 22.7857 18.8571 22.7857H3.14286C2.71071 22.7857 2.35714 22.4321 2.35714 22V9.42857Z"
+                    fill="#969696"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_101_1442">
+                    <rect width="22" height="25.1429" fill="white" />
+                  </clipPath>
+                </defs>
+              </CalendarIconEnd>
               {showMiniCalendarEnd && (
                 <MiniCalendarEnd onDayClick={setSelectEndDay} setMiniEndOpen={setShowMiniCalendarEnd} />
               )}
@@ -269,27 +297,25 @@ const StartInput = styled.input`
   border-radius: 0.5rem;
   background-color: var(--color-white);
 `;
-const CalendarIconStart = styled.div`
+const CalendarIconStart = styled.svg`
   position: absolute;
   top: 1.1rem;
   right: 1.4rem;
   width: 1.8rem;
   height: 2rem;
   cursor: pointer;
-  background: url(${CalendarIcon}) no-repeat center / contain;
   z-index: 200;
 `;
 const EndInputBox = styled.div`
   position: relative;
 `;
-const CalendarIconEnd = styled.div`
+const CalendarIconEnd = styled.svg`
   position: absolute;
   top: 1.1rem;
   right: 3.2rem;
   width: 1.8rem;
   height: 2rem;
   cursor: pointer;
-  background: url(${CalendarIcon}) no-repeat center / contain;
   z-index: 200;
 `;
 const EndInput = styled.input`
