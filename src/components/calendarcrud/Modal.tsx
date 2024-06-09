@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, set, push } from 'firebase/database';
 import Button from '../Button';
+import CalendarIcon from '../../assets/images/icon-calendar.svg';
 import MiniCalendarStart from '../../components/calendarcrud/MiniCalendarStart';
 import MiniCalendarEnd from '../../components/calendarcrud/MiniCalendarEnd';
 import styled from 'styled-components';
@@ -118,24 +119,7 @@ const Modal = ({ setModalOpen, startDate }: ModalType) => {
                 }
                 disabled
               ></StartInput>
-              <CalendarIconStart
-                onClick={startBtnClick}
-                viewBox="0 0 22 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_101_1442)">
-                  <path
-                    d="M7.46429 1.17857C7.46429 0.525446 6.93884 0 6.28571 0C5.63259 0 5.10714 0.525446 5.10714 1.17857V3.14286H3.14286C1.40938 3.14286 0 4.55223 0 6.28571V7.07143V9.42857V22C0 23.7335 1.40938 25.1429 3.14286 25.1429H18.8571C20.5906 25.1429 22 23.7335 22 22V9.42857V7.07143V6.28571C22 4.55223 20.5906 3.14286 18.8571 3.14286H16.8929V1.17857C16.8929 0.525446 16.3674 0 15.7143 0C15.0612 0 14.5357 0.525446 14.5357 1.17857V3.14286H7.46429V1.17857ZM2.35714 9.42857H19.6429V22C19.6429 22.4321 19.2893 22.7857 18.8571 22.7857H3.14286C2.71071 22.7857 2.35714 22.4321 2.35714 22V9.42857Z"
-                    fill="#969696"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_101_1442">
-                    <rect width="22" height="25.1429" fill="white" />
-                  </clipPath>
-                </defs>
-              </CalendarIconStart>
+              <CalendarIconStart onClick={startBtnClick} />
               {showMiniCalendarStart && (
                 <MiniCalendarStart onDayClick={setSelectStartDay} setMiniStartOpen={setShowMiniCalendarStart} />
               )}
@@ -151,19 +135,7 @@ const Modal = ({ setModalOpen, startDate }: ModalType) => {
                 style={CompareDate ? { textDecoration: 'line-through', color: 'red' } : {}}
                 disabled
               />
-              <CalendarIconEnd onClick={endBtnClick} viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#clip0_101_1442)">
-                  <path
-                    d="M7.46429 1.17857C7.46429 0.525446 6.93884 0 6.28571 0C5.63259 0 5.10714 0.525446 5.10714 1.17857V3.14286H3.14286C1.40938 3.14286 0 4.55223 0 6.28571V7.07143V9.42857V22C0 23.7335 1.40938 25.1429 3.14286 25.1429H18.8571C20.5906 25.1429 22 23.7335 22 22V9.42857V7.07143V6.28571C22 4.55223 20.5906 3.14286 18.8571 3.14286H16.8929V1.17857C16.8929 0.525446 16.3674 0 15.7143 0C15.0612 0 14.5357 0.525446 14.5357 1.17857V3.14286H7.46429V1.17857ZM2.35714 9.42857H19.6429V22C19.6429 22.4321 19.2893 22.7857 18.8571 22.7857H3.14286C2.71071 22.7857 2.35714 22.4321 2.35714 22V9.42857Z"
-                    fill="#969696"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_101_1442">
-                    <rect width="22" height="25.1429" fill="white" />
-                  </clipPath>
-                </defs>
-              </CalendarIconEnd>
+              <CalendarIconEnd onClick={endBtnClick} />
               {showMiniCalendarEnd && (
                 <MiniCalendarEnd onDayClick={setSelectEndDay} setMiniEndOpen={setShowMiniCalendarEnd} />
               )}
@@ -183,12 +155,12 @@ const Backdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 `;
 const ModalLayout = styled.div`
@@ -202,11 +174,11 @@ const ModalLayout = styled.div`
 const ModalBox = styled.div`
   width: 35rem;
   height: 63rem;
-  background-color: var(--color-white);
-  overflow: hidden;
-  border-radius: 1.5rem;
   margin-top: 18rem;
   margin-bottom: 18rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background-color: var(--color-white);
 `;
 const ModalBtn = styled.div`
   display: flex;
@@ -225,20 +197,20 @@ const CreateBtn = styled(Button)`
 `;
 const NameBox = styled.div`
   margin-top: 4rem;
-  color: var(--color-black);
   font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
+  color: var(--color-black);
 `;
 const FirstContext = styled.div`
   margin: 3.5rem 0 0 2.5rem;
   font-size: 1.4rem;
 `;
 const FirstInput = styled.input`
+  width: 30.5rem;
   height: 3.4rem;
   margin: 0.7rem 0 0 2.3rem;
   padding-left: 1rem;
-  width: 30.5rem;
   border: var(--border-gray);
   border-radius: 0.5rem;
 
@@ -252,10 +224,10 @@ const SecondContext = styled.div`
   font-size: 1.4rem;
 `;
 const SecondInput = styled.input`
+  width: 30.5rem;
   height: 3.4rem;
   margin: 1.2rem 0 0 2.3rem;
   padding-left: 1rem;
-  width: 30.5rem;
   border: var(--border-gray);
   border-radius: 0.5rem;
 
@@ -269,14 +241,14 @@ const ContextBox = styled.div`
   justify-content: space-between;
 `;
 const StartContext = styled.div`
+  width: 13.7rem;
   margin: 2.9rem 0 0 2.5rem;
   font-size: 1.4rem;
-  width: 13.7rem;
 `;
 const EndContext = styled.div`
+  width: 13.7rem;
   margin: 2.9rem 2.1rem 0 0;
   font-size: 1.4rem;
-  width: 13.7rem;
 `;
 const DateInputRow = styled.div`
   display: flex;
@@ -289,41 +261,43 @@ const StartInputBox = styled.div`
 `;
 const StartInput = styled.input`
   position: relative;
+  width: 14.2rem;
   height: 3.2rem;
   margin: 0.5rem 0.5rem 0.5rem 2.3rem;
   padding-left: 1.3rem;
-  width: 14.2rem;
   border: var(--border-gray);
   border-radius: 0.5rem;
   background-color: var(--color-white);
 `;
-const CalendarIconStart = styled.svg`
+const CalendarIconStart = styled.div`
   position: absolute;
   top: 1.1rem;
   right: 1.4rem;
   width: 1.8rem;
   height: 2rem;
-  z-index: 200;
   cursor: pointer;
+  background: url(${CalendarIcon}) no-repeat center / contain;
+  z-index: 200;
 `;
 const EndInputBox = styled.div`
   position: relative;
 `;
-const CalendarIconEnd = styled.svg`
+const CalendarIconEnd = styled.div`
   position: absolute;
   top: 1.1rem;
   right: 3.2rem;
   width: 1.8rem;
   height: 2rem;
-  z-index: 200;
   cursor: pointer;
+  background: url(${CalendarIcon}) no-repeat center / contain;
+  z-index: 200;
 `;
 const EndInput = styled.input`
   position: relative;
+  width: 14.2rem;
   height: 3.2rem;
   margin: 0.5rem 2.3rem 0.5rem 0.5rem;
   padding-left: 1.3rem;
-  width: 14.2rem;
   border: var(--border-gray);
   border-radius: 0.5rem;
   background-color: var(--color-white);

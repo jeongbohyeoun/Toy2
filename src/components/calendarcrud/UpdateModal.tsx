@@ -200,7 +200,7 @@ const Backdrop = styled.div`
 `;
 const ModalLayout = styled.div`
   position: fixed;
-  inset: 0px;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;

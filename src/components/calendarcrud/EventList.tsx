@@ -17,7 +17,7 @@ interface EventListProps {
   setUpdateModalOpen: (open: boolean) => void;
 }
 
-const colors = ['#FFB6C1', '#ADD8E6', '#90EE90', '#FFD700', '#FF6347', '#13879b'];
+const colors = ['#FECACA', '#BFDBFE', '#A7F3D0', '#FDE68A', '#DDD6FE', '#FBCFE8'];
 
 const colorMap: { [key: string]: string } = {};
 
@@ -144,7 +144,7 @@ const DateGroup = styled.div`
 
 const EventItem = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
-  border: 1px solid var(--color-gray-lighter);
+  border: 0.1rem solid var(--color-gray-lighter);
   border-radius: 0.4rem;
   margin: 0.3rem;
   padding: 0.5rem;
@@ -182,14 +182,18 @@ const EventDetail = styled.div`
 `;
 
 const MoreEventsButton = styled.button`
-  background-color: #f0f0f0;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  margin: 3px 0;
-  padding: 3px;
-  font-size: 11px;
+  background-color: var(--color-gray-lighter);
+  border-radius: 0.4rem;
+  margin: 0.3rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
   cursor: pointer;
   position: absolute;
-  top: -25px;
-  right: 5px;
+  top: -2.5rem;
+  right: 0.5rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color-gray-light);
+  }
 `;

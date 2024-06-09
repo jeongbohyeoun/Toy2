@@ -107,7 +107,7 @@ const MiniCalendarBox = styled.div`
   margin: 0.03rem 0 0 1.5rem;
   padding: 0 1rem 2rem;
   border-radius: 0.8rem;
-  border: 1px solid var(--color-gray-light);
+  border: 0.1rem solid var(--color-gray-light);
   background-color: var(--color-white);
 `;
 const MiniSwiperBox = styled.div`
@@ -117,17 +117,17 @@ const MiniSwiperBox = styled.div`
 `;
 const MiniLeftSwiperBtn = styled.button`
   padding: 0 0.5rem;
-  color: var(--color-gray);
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
+  color: var(--color-gray);
 `;
 const MiniRightSwiperBtn = styled.button`
   padding: 0 0.5rem;
-  color: var(--color-gray);
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
+  color: var(--color-gray);
 `;
 const MiniMonthYearBox = styled.div`
   grid-column: 3 / 6;
@@ -144,11 +144,11 @@ const MiniRightBox = styled.div`
 `;
 const MiniWeekBox = styled.div`
   padding: 0.05rem;
-  background-color: var(--color-white);
   font-family: 'Inter-Medium', sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
+  background-color: var(--color-white);
 `;
 const MiniDay = styled.div`
   display: flex;
@@ -159,8 +159,8 @@ const MiniDay = styled.div`
 
   &:hover {
     border-radius: 0.4rem;
-    background-color: var(--color-primary);
     color: var(--color-white);
+    background-color: var(--color-primary);
   }
 `;
 const CurrentMonthDay = styled(MiniDay)`

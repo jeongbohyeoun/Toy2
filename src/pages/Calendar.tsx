@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Modal from '../components/calendarcrud/Modal';
 import UpdateModal from '../components/calendarcrud/UpdateModal';
 import Button from '../components/Button';
+import LeftArrow from '../assets/images/icon-chevron-left.svg';
+import RightArrow from '../assets/images/icon-chevron-right.svg';
 import Layout from '@/components/layout/Layout';
 import { db, auth } from '../firebase';
 import { ref, onValue } from 'firebase/database';
@@ -133,20 +135,10 @@ const Calendar = () => {
         <CalendarBox>
           <SwiperBox>
             <LeftSwiperBtn onClick={prevMonth}>
-              <LeftIcon viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.43937 14.5447C3.85354 15.1369 3.85354 16.0986 4.43937 16.6908L13.4376 25.7866C14.0234 26.3788 14.9748 26.3788 15.5606 25.7866C16.1465 25.1945 16.1465 24.2328 15.5606 23.6406L7.62156 15.6154L15.5559 7.59019C16.1418 6.99801 16.1418 6.03631 15.5559 5.44413C14.9701 4.85196 14.0187 4.85196 13.4329 5.44413L4.43468 14.54L4.43937 14.5447Z"
-                  fill="#4CD964"
-                />
-              </LeftIcon>
+              <LeftIcon />
             </LeftSwiperBtn>
             <RightSwiperBtn onClick={nextMonth}>
-              <RightIcon viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M15.5606 14.5447C16.1465 15.1369 16.1465 16.0986 15.5606 16.6908L6.56239 25.7866C5.97657 26.3788 5.02519 26.3788 4.43937 25.7866C3.85354 25.1945 3.85354 24.2328 4.43937 23.6406L12.3784 15.6154L4.44405 7.59019C3.85823 6.99801 3.85823 6.03631 4.44405 5.44413C5.02988 4.85196 5.98125 4.85196 6.56708 5.44413L15.5653 14.54L15.5606 14.5447Z"
-                  fill="#4CD964"
-                />
-              </RightIcon>
+              <RightIcon />
             </RightSwiperBtn>
           </SwiperBox>
           <TodayButton onClick={() => setDate(new Date())}>오늘</TodayButton>
@@ -211,46 +203,48 @@ const LeftSwiperBtn = styled.button`
   width: 3.3rem;
   height: 3.3rem;
   padding: 0.08rem 1.6rem;
-  color: var(--color-primary);
-  font-size: 4rem;
   border: 0.1rem solid var(--color-primary);
   border-radius: 0.5rem;
+  font-size: 4rem;
   cursor: pointer;
+  color: var(--color-primary);
 `;
 const RightSwiperBtn = styled.button`
   position: relative;
   width: 3.3rem;
   height: 3.3rem;
   padding: 0.08rem 1.6rem;
-  color: var(--color-primary);
-  font-size: 4rem;
-  border: 1px solid var(--color-primary);
+  border: 0.1rem solid var(--color-primary);
   border-radius: 0.5rem;
+  font-size: 4rem;
+  color: var(--color-primary);
   cursor: pointer;
 `;
-const LeftIcon = styled.svg`
+const LeftIcon = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 2rem;
   height: 2.7rem;
+  transform: translate(-50%, -50%);
+  background: url(${LeftArrow}) no-repeat center / contain;
 `;
-const RightIcon = styled.svg`
+const RightIcon = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 2rem;
   height: 2.7rem;
+  transform: translate(-50%, -50%);
+  background: url(${RightArrow}) no-repeat center / contain;
 `;
 const MonthYearBox = styled.div`
   grid-column: 3 / 6;
   height: 6rem;
-  color: var(--color-gray-dark);
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
+  color: var(--color-gray-dark);
 `;
 const EventRow = styled.div`
   grid-column: 6 / 8;
@@ -264,12 +258,12 @@ const EventBtn = styled(Button)`
 `;
 const WeekBox = styled.div`
   padding: 0.6rem 0;
-  color: var(--color-white);
-  background-color: var(--color-primary);
   font-family: 'Inter-Medium', sans-serif;
   font-size: 1.6rem;
   outline: 0.1rem solid var(--color-gray-lighter);
   text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-primary);
 `;
 const Day = styled.div`
   width: 12.2rem;
@@ -315,6 +309,7 @@ const OtherMonthDay = styled(Day)`
 const TodayDay = styled(CurrentMonthDay)`
   color: var(--color-primary);
   font-weight: 600;
+  background-color: #fafafa;
 `;
 
 const TodayButton = styled(Button)`
